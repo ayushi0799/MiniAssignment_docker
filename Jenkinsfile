@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Test') {
             steps {
-                echo 'Hello World'
+               git credentialsId: '3dc64b55-a9c9-43ca-9291-42d88d990dc8', url: 'https://github.com/ayushi0799/MiniAssignment_docker'
             }
         }
           stage('Build') {
@@ -12,7 +12,7 @@ pipeline {
                 echo 'Building'
             }
         }
-        stage('Test') {
+        stage('Pull') {
             steps {
                 echo 'Testing'
             }
