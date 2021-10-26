@@ -18,8 +18,8 @@ node{
              repo.push("latest")        
               
              }    
-           }
-        }
+           
+    
         
         stage('Build Docker image') {
                 echo 'Building'
