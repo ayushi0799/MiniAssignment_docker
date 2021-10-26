@@ -8,7 +8,7 @@ node{
            bat 'docker build -t ayushi0799/app:2.0.0 .'  
        } 
         stage('Push Docker image') {
-           withCredentials([string(credentialsId: 'docker-password', variable: 'DockerHubPassword')]) {
+           withCredentials([string(credentialsId: 'dockerPassword', variable: 'DockerHubPassword')]) {
                    bat "docker login -u ayushi0799 -p ${DockerHubPassword}"
            }
           
