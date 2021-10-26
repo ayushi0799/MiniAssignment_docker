@@ -5,7 +5,7 @@ node{
             }
       stage('Build Docker image') {         
        
-           bat 'docker build -t ayushi0799/app:2.0.0.'  
+           bat 'docker build -t ayushi0799/app:2.0.0 .'  
        } 
       
        
