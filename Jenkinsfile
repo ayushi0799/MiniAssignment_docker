@@ -1,16 +1,28 @@
 node{
+        def repo;
         stage('Test') {
                git credentialsId: '3dc64b55-a9c9-43ca-9291-42d88d990dc8', url: 'https://github.com/ayushi0799/MiniAssignment_docker'
             }
-       stage('mvn packages'){
-          def mvnHome = tool name: 'maven-3', type: 'maven'
-           def mvnCMD = "${mvnHome}/bin/mvn"
-          bat "${mvnCMD} clean package"
-       }
+ 
       
+      stage('Build image') {         
+       
+            repo = docker.build("ayushi0799/app")    
+       }   
+      
+
+       stage('Push image to DockerHub') {
+             
+             docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {            
+             repo.push("${env.BUILD_NUMBER}")            
+             repo.push("latest")        
+              
+             }    
+           }
+        }
         
-        stage('Build docker image') {
-                        
+        stage('Build Docker image') {
+                echo 'Building'
             }
         stage('Pull') {
                 echo 'Testing'
