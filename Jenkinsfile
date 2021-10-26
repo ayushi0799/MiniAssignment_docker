@@ -1,5 +1,5 @@
 node{
-        def repo;
+        def repo
         stage('Test') {
                git credentialsId: '3dc64b55-a9c9-43ca-9291-42d88d990dc8', url: 'https://github.com/ayushi0799/MiniAssignment_docker'
             }
@@ -13,7 +13,7 @@ node{
 
        stage('Push image to DockerHub') {
              
-             docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {            
+             docker.withRegistry('https://registry.hub.docker.com', 'dockerHub')            
              repo.push("${env.BUILD_NUMBER}")            
              repo.push("latest")        
               
