@@ -14,6 +14,7 @@ node{
            bat 'docker push ayushi0799/app:2.0.0'
         }
         stage('Deploy'){
+                bat 'docker pull ayushi0799/app:2.0.0'
                 bat 'docker run -p 3000:3000 -d -name my-app ayushi0799/my-app:2.0.0'
         }
       
