@@ -3,6 +3,9 @@ node{
        stage('SCM checkout') {
                git credentialsId: 'Git-Cred', url: 'https://github.com/ayushi0799/MiniAssignment_docker'
             }
+        stage('Test'){
+                bat 'npm test'
+        }
       stage('Build Docker image') {         
            bat 'docker build -t ayushi0799/my-app:2.0.0 .'  
        } 
